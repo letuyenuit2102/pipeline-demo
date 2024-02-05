@@ -1,10 +1,11 @@
 pipeline {
-    agent { dockerfile true }
+    agent { 
+        label 'agent1'
+    }
     stages {
         stage('Test') {
             steps {
-                sh 'node --version'
-                sh 'svn --version'
+                sh 'docker build -t express:app .'
             }
         }
     }
