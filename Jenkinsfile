@@ -1,9 +1,11 @@
 pipeline {
-    agent { docker { image 'node:18' } }
+    agent { 
+        label 'agent1'
+    }
     stages {
         stage('build') {
             steps {
-                sh 'node --version'
+                sh 'docker build -t express:app .'
             }
         }
     }
